@@ -1,0 +1,68 @@
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+  <style>
+    .mon-menu-personnalise {
+  list-style: none;
+  padding: 0;
+}
+
+.mon-menu-personnalise li {
+  display: inline-block;
+  margin-right: 20px;
+  position: relative; /* Pour les éléments enfants positionnés absolument */
+}
+
+.mon-menu-personnalise li a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 15px; /* Ajustez l'espacement interne du lien */
+  display: block; /* Pour que les liens occupent toute la largeur de l'élément li */
+}
+
+/* Sous-menu */
+.mon-menu-personnalise ul {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #fff; /* Couleur de fond du sous-menu */
+  padding: 10px 0; /* Ajustez l'espacement interne du sous-menu */
+  border: 1px solid #ccc; /* Bordure du sous-menu */
+}
+
+.mon-menu-personnalise li:hover > ul {
+  display: block;
+}
+
+/* Styles pour les éléments du sous-menu */
+.mon-menu-personnalise ul li {
+  display: block;
+  margin-right: 0; /* Réinitialisez la marge */
+  white-space: nowrap; /* Empêche le retour à la ligne dans le sous-menu */
+}
+
+.mon-menu-personnalise ul li a {
+  padding: 8px 20px; /* Ajustez l'espacement interne du lien du sous-menu */
+}
+
+  </style>
+<header id="header" class="d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <h1 class="logo">
+          <a href="/"
+          > <img src="{% static 'assets/img/logoENsam.png' %}" alt="ENSAM Logo">
+          </a>
+      </h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+
+      <nav id="navbar" class="navbar">
+  <ul class="mon-menu-personnalise">
+    {% show_menu 0 100 100 100 %}
+  </ul>
+  <i class="bi bi-list mobile-nav-toggle"></i>
+</nav>
+
+    </div>
+  </header>
