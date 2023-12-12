@@ -1,0 +1,252 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<style>
+    .header {
+        position: relative;
+        border-bottom-right-radius: 50%;
+        background: #07689f;
+        overflow: hidden;
+        word-wrap: break-word;
+        min-height: 400px;
+        padding: 0 50px;
+        max-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header .title {
+        text-align: center;
+        margin: 0 auto;
+        width: 60%;
+        height: 100%;
+    }
+
+    .header .heading {
+        font-weight: 900;
+        color: #fafafa;
+        font-size: 45px;
+    }
+
+    @media screen and (max-width: 890px) {
+        .header .heading {
+            font-size: 30px;
+        }
+    }
+
+    .header .description {
+        color: #fff;
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .header {
+            padding: 0 0;
+        }
+
+        .header .title {
+            padding: 0 0;
+            width: 100%;
+        }
+
+        .header .description {
+            display: none;
+        }
+    }
+    -------------------------------------------------------------*/
+.cta {
+  padding: 0;
+  margin-bottom: 60px;
+}
+
+.cta .container {
+  padding: 80px;
+  background: rgba(var(--color-secondary-rgb), 0.1);
+  border-radius: 15px;
+}
+
+@media (max-width: 992px) {
+  .cta .container {
+    padding: 60px;
+  }
+}
+
+.cta .content h3 {
+  color: var(--color-secondary);
+  font-size: 48px;
+  font-weight: 700;
+}
+
+.cta .content h3 em {
+  font-style: normal;
+  position: relative;
+}
+
+.cta .content h3 em:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  height: 10px;
+  background: rgba(var(--color-primary-rgb), 0.5);
+  z-index: -1;
+}
+
+.cta .content p {
+  color: var(--color-secondary);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.cta .content .cta-btn {
+  color: var(--color-white);
+  font-weight: 500;
+  font-size: 16px;
+  display: inline-block;
+  padding: 12px 40px;
+  border-radius: 5px;
+  transition: 0.5s;
+  margin-top: 10px;
+  background: rgba(var(--color-primary-dark-rgb), 0.9);
+}
+
+.cta .content .cta-btn:hover {
+  background: var(--color-primary);
+}
+
+.cta .img {
+  position: relative;
+}
+
+.cta .img:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--color-white-rgb), 0.5);
+  border-radius: 15px;
+  transform: rotate(12deg);
+}
+
+.cta .img:after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(var(--color-white-rgb), 0.9);
+  border-radius: 15px;
+  transform: rotate(6deg);
+}
+
+.cta .img img {
+  position: relative;
+  z-index: 3;
+  border-radius: 15px;
+}
+</style>
+<section class="header">
+    <div class="title">
+        <h1 class="heading mb-3">CLUBS ENSAM</h1>
+        <p class="description mb-5">En parallèle à la formation technique et la recherche scientifique, l’Ecole Nationale Supérieure des Arts et Métiers propose un panel d’activités culturelles, sportives, entrepreneuriales et sociales reconnaissant alors l’inestimable contribution de ces dernières dans la garantie d’une insertion professionnelle favorable des Gadz’arts se voulant polyvalents et ouverts sur le monde socio-culturel et socio-économique.
+Ayant diverses vocations, mais se démarquant tous par un esprit d’initiative, un profil d’ingénieur exigent et perfectionniste et aussi une conviction profonde pour leurs idées et leurs projets, les clubs ont ainsi vu le jour sous la tutelle de l’ADE jouant à présent un rôle primordial dans l’animation de la vie associative et festive de l’école.</p>
+    </div>
+</section>
+<section id="cta" class="cta">
+      <div style="background-color: white" class="container aos-init aos-animate" data-aos="zoom-out">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+            <h3>ENACTUS ENSAM CASABLANCA</h3>
+Enactus (Ex-SIFE) est une organisation mondiale fondée en 1975 et implantée dans 40 pays. Elle a pour mission de développer des partenariats élargis entre le monde des affaires et celui de l’enseignement supérieur afin de préparer les étudiants à contribuer substantiellement au développement de leur pays en tant que futurs entrepreneurs et leaders économiques.
+
+<br>Enactus Morocco compte annuellement, plus de 150 projets menés et encadrés par près de 1 500 étudiants de plus de 40 universités et écoles (EMI, EHTP, ENSAM, ENSIAS, IAV, INPT, ENCG….) au profit de près de 50000 bénéficiaires. La majeure partie de ces projets est orientée vers le développement de l’autonomie financière des populations nécessiteuses, notamment à travers des activités génératrices de revenu.
+
+
+              <br>Enactus ENSAM Casablanca est une filiale d’ENACTUS Morocco, créée en 2014 commençant avec 17 membres et atteignant 78 membres aujourd’hui, Nous représentons l’Ecole Nationale supérieure d’Arts et Métiers de Casablanca et nous voyons que porter un coup de main à ceux qui en ont besoin est un plaisir avant qu’il soit un devoir.
+
+
+          </div>
+
+          <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
+            <div class="img">
+              <img src="http://www.ensam-casa.ma/assets/images/enactus-ensam-casa.jpeg" alt="" class="img-fluid">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    <br>
+     <div style="background-color: white" class="container aos-init aos-animate" data-aos="zoom-out">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+            <h3>ROTARACT ENSAM CASABLANCA</h3>
+Rotaract est un club service parrainé par le Rotary et destiné aux jeunes de 18 à 30 ans désireux de servir la collectivité.
+
+<br><br>Les clubs Rotaract sont de véritables «partenaires dans le service » et des membres essentiels de la famille rotarienne.
+
+<br><br>Rotaract ne vise pas seulement le social, c’est un club international qui prend en considération les valeurs d’amitié entre les membres de tous les clubs Rotaract ce que prouve son slogan « l’amitié par le service » et aussi chaque club Rotaract est amené à monter des actions et activités dans trois catégories: développement professionnel, action d’intérêt public et formation à l’encadrement, et grâce aux efforts fournis par les rotaractiens et le rotary club parrain dans le cadre du développement professionnel, les Rotaractiens approfondissent ainsi leur connaissance du milieu de l’entreprise et des possibilités qu’offre la collectivité.
+
+<br><br>Rotaract est un club qui se caractérise tout de même par son travail commun avec tous les Rotaract du Maroc et aussi avec les Rotaract au niveau international dans le cadre des actions internationales.
+          </div>
+
+          <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
+            <div class="img">
+              <img src="http://www.ensam-casa.ma/assets/images/club2.jpg" alt="" class="img-fluid">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    <br>
+    <div style="background-color: white" class="container aos-init aos-animate" data-aos="zoom-out">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+            <h3>CLUB ART&CULTURE - ENSAM CASABLANCA</h3>
+
+              Le club ’’ Art & Culture’’ est un club qui a pour principal objectif la sensibilisation à l’importance de la culture pour une réussite personnelle et professionnelle et aussi procurer aux passionnés d’art un espace ouvert pour s’exprimer. La Culture et l’Art sont omniprésents et constituent une grande partie de notre existence comme étant un pilier dans l’épanouissement et le développement personnel.
+              La culture régit chaque aspect de notre vie et, comme la plupart des gens, nous n’en sommes pas vraiment conscients. Elle s’acquiert et s’oublie, aussi, malgré son importance, nous sommes généralement inconscients de son influence sur la façon dont nous percevons le monde et dont nous interagissons dans celui-ci. L'art est partout, parce que les gens ont besoin de l'utiliser pour des usages quotidiens il est utilisé aussi pour faire preuve de créativité et surtout comme moyen d’expression.
+          </div>
+
+          <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
+            <div class="img">
+              <img src="http://www.ensam-casa.ma/assets/images/club3.jpg" alt="" class="img-fluid">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    <br>
+    <div style="background-color: white" class="container aos-init aos-animate" data-aos="zoom-out">
+
+        <div class="row g-5">
+
+          <div class="col-lg-8 col-md-6 content d-flex flex-column justify-content-center order-last order-md-first">
+            <h3>CSAM - CLUB SPORTIF ARTS & METIERS</h3>
+           Le Club Sportif Arts et Métiers, est un club créé par des élèves ingénieurs de l’Ecole Nationale Supérieure d’Arts et Métiers de Casablanca qui assure la pratique du sport et organise plusieurs activités physiques et sportives facultatives pour tous les étudiants du cycle normal.
+
+<br><br>Ce club met tout en œuvre pour satisfaire l’ensemble des étudiants ; aussi bien ceux qui désirent pratiquer leur passion, que ceux qui désirent se maintenir en forme uniquement.
+
+<br><br>Notre mission est simple : favoriser la pratique du sport en tant que loisir irremplaçable, découvrir de nouveaux sports jusque là méconnus, voire inédits, accroître la compétition entre les étudiants d’un point de vue sportif, et relever le niveau du sport universitaire et lui donner un nouvel envol.
+
+          </div>
+
+          <div class="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
+            <div class="img">
+              <img src="http://www.ensam-casa.ma/assets/images/club4.jpg" alt="" class="img-fluid">
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+{% endblock %}

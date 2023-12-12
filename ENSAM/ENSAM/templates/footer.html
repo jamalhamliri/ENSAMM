@@ -1,83 +1,87 @@
 {% load static %}
+{% load cms_tags menu_tags sekizai_tags %}
 <style>
- .logo img {
-  max-height: 40px;
-}
+  .logo img {
+    max-height: 40px;
+  }
 </style>
 <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3 col-md-6">
+          <div class="footer-info">
+            <h3 class="logo"><img src="{% static 'assets/img/logoENsam.png' %}" alt="ENSAM Logo" /></h3>
+            <p>L'ENSAM de Casablanca est une école d'ingénieurs qui a pour mission de préparer les étudiants-ingénieurs aux métiers du secteur industriel.</p>
+            <br />
+            <p>
+              150 Avenue Nile Sidi Othman،
+              <br />Casablanca 20670
+              <br />
+              <strong>Phone:</strong> +212 52 25 64 222<br />
+              <strong>Email:</strong> contact@ensam-casa.ma<br />
+            </p>
+            <div class="social-links mt-3">
+              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            </div>
+          </div>
+        </div>
 
-          <div class="col-lg-3 col-md-6">
-            <div class="footer-info">
-              <h3 class="logo "><img src="{% static 'assets/img/logoENsam.png' %}" alt="ENSAM Logo"></h3>
-                <p>
-                    L'ENSAM de Casablanca est une école d'ingénieurs qui a pour mission de préparer les étudiants-ingénieurs aux métiers du secteur industriel.
-                </p>
-                <br>
-              <p>
-                150 Avenue Nile Sidi Othman،
-                  <br>Casablanca 20670
-                  <br>
-                <strong>Phone:</strong> +212 52 25 64 222<br>
-                <strong>Email:</strong> contact@ensam-casa.ma<br>
-              </p>
-              <div class="social-links mt-3">
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+        <div class="col-lg-2 col-md-6 footer-links">
+          <h4>LIENS DIRECTS</h4>
+          <ul>
+            {% show_menu 0 0  %}
+          </ul>
+
+        </div>
+
+        <!-- <div class="col-lg-3 col-md-6 footer-links"> -->
+        <!-- &lt;!&ndash; <h4>Our Services</h4>&ndash;&gt; -->
+        <!-- &lt;!&ndash; <ul>&ndash;&gt; -->
+        <!-- &lt;!&ndash; <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>&ndash;&gt; -->
+        <!-- &lt;!&ndash; <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>&ndash;&gt; -->
+        <!-- &lt;!&ndash; <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>&ndash;&gt; -->
+        <!-- &lt;!&ndash; <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>&ndash;&gt; -->
+        <!-- &lt;!&ndash; <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>&ndash;&gt; -->
+        <!-- &lt;!&ndash; </ul>&ndash;&gt; -->
+        <!-- </div> -->
+
+        <!-- <div class="col-lg-4 col-md-6 footer-newsletter"> -->
+        <!-- <h4>Our Newsletter</h4> -->
+        <!-- <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p> -->
+        <!-- <form action="" method="post"> -->
+        <!-- <input type="email" name="email"><input type="submit" value="Subscribe"> -->
+        <!-- </form> -->
+
+        <!-- </div> -->
+        <div class="col-lg-1 col-md-1"></div>
+        <div class="col-lg-6 col-md-6">
+          <div class="footer-widget">
+            <div class="footer-menu">
+              <div id="map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6649.5357288194855!2d-7.570524267239957!3d33.55940715098728!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda6332908d1d61b%3A0x569d5bec37f7f81a!2sENSAM%20CASABLANCA!5e0!3m2!1sfr!2sma!4v1600201212547!5m2!1sfr!2sma" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
               </div>
             </div>
           </div>
-
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Home</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">About us</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Services</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Privacy policy</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Our Services</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Design</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Web Development</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Product Management</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Marketing</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Graphic Design</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>Our Newsletter</h4>
-            <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
-            <form action="" method="post">
-              <input type="email" name="email"><input type="submit" value="Subscribe">
-            </form>
-
-          </div>
-
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong><span>ENSAM</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/sailor-free-bootstrap-theme/ -->
-        Designed by <a href="https://gosmania.com/">GOSMANIA DIGITAL</a>
-      </div>
+  <div class="container">
+    <div class="copyright">
+      &copy; Copyright <strong><span>ENSAM</span></strong>. All Rights Reserved
     </div>
-  </footer>
+    <div class="credits">
+      <!-- All the links in the footer should remain intact. -->
+      <!-- You can delete the links only if you purchased the pro version. -->
+      <!-- Licensing information: https://bootstrapmade.com/license/ -->
+      <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/sailor-free-bootstrap-theme/ -->
+      Designed by <a href="https://gosmania.com/">GOSMANIA DIGITAL</a>
+    </div>
+  </div>
+</footer>

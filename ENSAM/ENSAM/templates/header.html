@@ -1,68 +1,120 @@
 {% load cms_tags menu_tags sekizai_tags %}
 {% load static %}
-  <style>
-    .mon-menu-personnalise {
-  list-style: none;
-  padding: 0;
-}
-
-.mon-menu-personnalise li {
-  display: inline-block;
-  margin-right: 20px;
-  position: relative; /* Pour les éléments enfants positionnés absolument */
-}
-
-.mon-menu-personnalise li a {
-  text-decoration: none;
-  color: #333;
-  padding: 10px 15px; /* Ajustez l'espacement interne du lien */
-  display: block; /* Pour que les liens occupent toute la largeur de l'élément li */
-}
-
-/* Sous-menu */
-.mon-menu-personnalise ul {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background-color: #fff; /* Couleur de fond du sous-menu */
-  padding: 10px 0; /* Ajustez l'espacement interne du sous-menu */
-  border: 1px solid #ccc; /* Bordure du sous-menu */
-}
-
-.mon-menu-personnalise li:hover > ul {
-  display: block;
-}
-
-/* Styles pour les éléments du sous-menu */
-.mon-menu-personnalise ul li {
-  display: block;
-  margin-right: 0; /* Réinitialisez la marge */
-  white-space: nowrap; /* Empêche le retour à la ligne dans le sous-menu */
-}
-
-.mon-menu-personnalise ul li a {
-  padding: 8px 20px; /* Ajustez l'espacement interne du lien du sous-menu */
-}
-
-  </style>
-<header id="header" class="d-flex align-items-center">
+<style>
+  .mon-menu-personnalise {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .mon-menu-personnalise li {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative; /* Pour les éléments enfants positionnés absolument */
+  }
+  
+  .mon-menu-personnalise li a {
+    text-decoration: none;
+    color: #333;
+    padding: 10px 15px; /* Ajustez l'espacement interne du lien */
+    display: block; /* Pour que les liens occupent toute la largeur de l'élément li */
+  }
+  
+  /* Sous-menu */
+  .mon-menu-personnalise ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff; /* Couleur de fond du sous-menu */
+    padding: 10px 0; /* Ajustez l'espacement interne du sous-menu */
+    border: 1px solid #ccc; /* Bordure du sous-menu */
+  }
+  
+  .mon-menu-personnalise li:hover > ul {
+    display: block;
+  }
+  
+  /* Styles pour les éléments du sous-menu */
+  .mon-menu-personnalise ul li {
+    display: block;
+    margin-right: 0; /* Réinitialisez la marge */
+    white-space: nowrap; /* Empêche le retour à la ligne dans le sous-menu */
+  }
+  
+  .mon-menu-personnalise ul li a {
+    padding: 8px 20px; /* Ajustez l'espacement interne du lien du sous-menu */
+  }
+  
+  /*--------------------------------------------------------------
+    # Top Bar
+    --------------------------------------------------------------*/
+  #topbar {
+    background: #106eea;
+    height: 40px;
+    font-size: 14px;
+    transition: all 0.5s;
+    color: #fff;
+    padding: 0;
+  }
+  
+  #topbar .contact-info i {
+    font-style: normal;
+    color: #fff;
+  }
+  
+  #topbar .contact-info i a,
+  #topbar .contact-info i span {
+    padding-left: 5px;
+    color: #fff;
+  }
+  
+  #topbar .contact-info i a {
+    line-height: 0;
+    transition: 0.3s;
+    transition: 0.3s;
+  }
+  
+  #topbar .contact-info i a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  #topbar .social-links a {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 0;
+    transition: 0.3s;
+    margin-left: 20px;
+  }
+  
+  #topbar .social-links a:hover {
+    color: white;
+  }
+</style>
+<div style="position: fixed; width: 100%; background-color: #fff; z-index: 1000;">
+  <section id="topbar" class="d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center">
+        <i class="bi bi-browser-chrome d-flex align-items-center"><a href="https://ent.univh2c.ma/uPortal/f/welcome/normal/render.uP">ENT</a></i>
+        <i class="bi bi-collection d-flex align-items-center ms-4"><a href="#">Bibliothèque</a></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="https://twitter.com/ensamcasa2019" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="https://www.facebook.com/ENSAM.univ/" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://www.youtube.com/channel/UCeQB_nDJYbY6T5n7SsxkdAw" class="youtube"><i class="bi bi-youtube"></i></a>
+        <a href="https://www.linkedin.com/school/ensam-casablanca/about/" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+    </div>
+  </section>
+  <header id="header" class="d-flex align-items-center" style="position: fixed; width: 100%; background-color: #fff; z-index: 1000;">
     <div class="container d-flex align-items-center justify-content-between">
-
-      <h1 class="logo">
-          <a href="/"
-          > <img src="{% static 'assets/img/logoENsam.png' %}" alt="ENSAM Logo">
-          </a>
-      </h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
+      <h1 class="logo"><a href="/"><img src="{% static 'assets/img/logoENsam.png' %}" alt="ENSAM Logo" /></a></h1>
 
       <nav id="navbar" class="navbar">
-  <ul class="mon-menu-personnalise">
-    {% show_menu 0 100 100 100 %}
-  </ul>
-  <i class="bi bi-list mobile-nav-toggle"></i>
-</nav>
-
+        <ul class="mon-menu-personnalise">
+          {% show_menu 0 100 100 100 %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
     </div>
   </header>
+</div>

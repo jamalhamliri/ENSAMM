@@ -1,4 +1,5 @@
 import os  # isort:skip
+
 gettext = lambda s: s
 DATA_DIR = os.path.dirname(os.path.dirname(__file__))
 """
@@ -18,7 +19,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
@@ -30,24 +30,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-
 # Application definition
-
-
-
 
 
 ROOT_URLCONF = 'ENSAM.urls'
 
-
-
 WSGI_APPLICATION = 'ENSAM.wsgi.application'
-
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
-
-
 
 
 # Password validation
@@ -68,7 +59,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -81,7 +71,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -96,11 +85,10 @@ STATICFILES_DIRS = (
 )
 SITE_ID = 1
 
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'ENSAM', 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'ENSAM', 'templates'), ],
         'OPTIONS': {
             'context_processors': [
                 'django.contrib.auth.context_processors.auth',
@@ -122,7 +110,6 @@ TEMPLATES = [
         },
     },
 ]
-
 
 MIDDLEWARE = [
     'cms.middleware.utils.ApphookReloadMiddleware',
@@ -184,6 +171,7 @@ INSTALLED_APPS = [
 LANGUAGES = (
     ## Customize this
     ('en', gettext('en')),
+
 )
 
 CMS_LANGUAGES = {
@@ -207,10 +195,23 @@ CMS_LANGUAGES = {
 CMS_TEMPLATES = (
     ## Customize this
     ('fullwidth.html', 'Fullwidth'),
-    ('sidebar_left.html', 'Sidebar Left'),
-    ('sidebar_right.html', 'Sidebar Right'),
+    # ('sidebar_left.html', 'Sidebar Left'),
+    # ('sidebar_right.html', 'Sidebar Right'),
     ('index.html', 'Home'),
-    ('contact.html', 'Contact')
+    ('contact.html', 'Contact'),
+    ('Ecole/presentation.html', 'Ecole/Presentation'),
+    ('Ecole/mot_du_directeur.html', 'Ecole/mot_du_directeur'),
+    ('Ecole/Communiques_officiels.html', 'Ecole/Communiques_officiels'),
+    ('Ecole/Corps_professoral.html', 'Ecole/Corps_professoral'),
+    ('Ecole/recrutements.html', 'Ecole/Recrutements'),
+    ('Ecole/reglement_interieur.html', 'Ecole/Reglement_Interieur'),
+    ('Ecole/appel_offres.html', 'Ecole/appel_offres'),
+    ('Etudiant/service_aux_etudiants.html', 'Etudiant/service_aux_etudiants'),
+    ('Etudiant/clubs.html', 'Etudiant/clubs'),
+    ('Etudiant/emplois_du_temps.html', 'Etudiant/emplois_du_temps'),
+    ('Etudiant/avis_aux_etudiants.html', 'Etudiant/avis_aux_etudiants'),
+    ('Etudiant/Ent.html', 'Etudiant/Ent'),
+
 )
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'

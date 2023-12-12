@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+  <style>
+    .header {
+      position: relative;
+      border-bottom-right-radius: 50%;
+      background: #07689f;
+      overflow: hidden;
+      word-wrap: break-word;
+      min-height: 400px;
+      padding: 0 50px;
+      max-height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .header .title {
+      text-align: center;
+      margin: 0 auto;
+      width: 60%;
+      height: 100%;
+    }
+    
+    .header .heading {
+      font-weight: 900;
+      color: #fafafa;
+      font-size: 45px;
+    }
+    
+    @media screen and (max-width: 890px) {
+      .header .heading {
+        font-size: 30px;
+      }
+    }
+    
+    .header .description {
+      color: #fff;
+      font-size: 16px;
+    }
+    
+    @media screen and (max-width: 768px) {
+      .header {
+        padding: 0 0;
+      }
+    
+      .header .title {
+        padding: 0 0;
+        width: 100%;
+      }
+    
+      .header .description {
+        display: none;
+      }
+    }
+  </style>
+  <section class="header">
+    <div class="title">
+      <h1 class="heading mb-3">APPELS D'OFFRES</h1>
+    </div>
+  </section>
+  <section id="blog" class="blog">
+    <div class="container" data-aos="fade-up">
+      <div style="background-color: white" class="row">
+        <div class="col-lg-8 entries">
+          <article class="entry">
+            <div class="entry-img">
+              <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" alt="" class="img-fluid" />
+            </div>
+
+            <h2 class="entry-title"><a href="blog-single.html">إعلان عـن طلب عروض أثمان مفتوحة رقم: IUH2C/2020 ( جلسة عمومية )</a></h2>
+
+            <div class="entry-content">
+              <p>سيتم في قاعة الاجتماعات بمقر رئاسة جامعة الحسن الثاني بالدار البيضاء الكائن ب 19، شارع طارق ابن زياد، الدارالبيضاء : فتح الأظرفة المتعلقة بطلبات عروض الأثمان المفتوحة التالية:</p>
+              <div class="read-more">
+                <a href="blog-single.html">Voir plus</a>
+              </div>
+            </div>
+          </article>
+          <!-- End blog entry -->
+
+          <article class="entry">
+            <div class="entry-img">
+              <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" alt="" class="img-fluid" />
+            </div>
+
+            <h2 class="entry-title"><a href="blog-single.html">AVIS D’APPEL D’OFFRE OUVERT N°36IUH2C/2020 (SEANCE PUBLIQUE)</a></h2>
+
+            <div class="entry-content">
+              <p>Il sera procédé dans la salle de réunion du siège de la Présidence (Site Casablanca, sis à 19,Bd Tarik Ibnou Ziad Casablanca) de l’Université Hassan II de Casablanca, à l’ouverture des plis relatif aux appels d’offr (...)</p>
+
+              <div class="read-more">
+                <a href="blog-single.html">Voir plus</a>
+              </div>
+            </div>
+          </article>
+          <!-- End blog entry -->
+
+          <div class="blog-pagination">
+            <ul class="justify-content-center">
+              <li>
+                <a href="#">1</a>
+              </li>
+              <li class="active">
+                <a href="#">2</a>
+              </li>
+              <li>
+                <a href="#">3</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- End blog entries list -->
+        <div class="col-lg-4">
+          <div class="sidebar">
+            <h4>LIENS DIRECTS</h4>
+            <div class="sidebar-item categories">
+              <ul>
+                {% show_menu 0 0  %}
+
+              </ul>
+              <!-- End sidebar categories -->
+            </div>
+
+            <h3 class="sidebar-title">LES PLUS RECENTS</h3>
+            <div class="sidebar-item recent-posts">
+              <div class="post-item clearfix">
+                <h4><a href="blog-single.html">HUAWEI ICT COMPETITION 2023-2024 NATIONAL PHASE</a></h4>
+              </div>
+              <div class="post-item clearfix">
+                <h4><a href="blog-single.html">Avis d’inscription au cycle doctoral 2023-2024</a></h4>
+              </div>
+              <div class="post-item clearfix">
+                <h4><a href="blog-single.html">Liste des candidats à convoquer à l'entretien pour..</a></h4>
+              </div>
+              <div class="post-item clearfix">
+                <h4><a href="blog-single.html">The fifth International Conference on Smart Applic...</a></h4>
+              </div>
+              <div class="post-item clearfix">
+                <h4><a href="blog-single.html">إعلان عن فتح باب الترشيح لشغل مناصب رؤساء المصالح...</a></h4>
+              </div>
+              <div class="post-item clearfix">
+                <h4><a href="blog-single.html">International Conference on Friendly Mobility and...</a></h4>
+              </div>
+              <div class="post-item clearfix">
+                <h4><a href="blog-single.html">الرتشـيحات للتسـجيل في تكوينـات الدكتـوراه برسـم ا...</a></h4>
+              </div> <div class="post-item clearfix">
+                <h4><a href="blog-single.html">Résultats du concours commun d’accès en première a...</a></h4>
+              </div> <div class="post-item clearfix">
+                <h4><a href="blog-single.html">Réinscription en Doctorat pour l'Année Universitai...</a></h4>
+              </div> <div class="post-item clearfix">
+                <h4><a href="blog-single.html">Liste des Admis du Concours National Commun à l'Ec...</a></h4>
+              </div>
+            </div>
+            <!-- End sidebar recent posts -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
