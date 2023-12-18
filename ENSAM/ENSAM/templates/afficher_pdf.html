@@ -1,0 +1,13 @@
+{% load static %}
+<html>
+<head>
+    <title>Affichage du PDF</title>
+</head>
+<body>
+    <h1>Contenu du PDF</h1>
+    <object data="{% static 'assets/reglement.pdf' %}" type="application/pdf" width="100%" height="80%">
+        <p>Impossible d'afficher le PDF. Veuillez <a href="{% static 'assets/reglement.pdf' %}">télécharger le fichier</a> pour le visualiser.</p>
+    </object>
+</body>
+</html>
+

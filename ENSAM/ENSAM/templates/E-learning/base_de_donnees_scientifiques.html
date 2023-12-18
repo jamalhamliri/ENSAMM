@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<style>
+    -------------------------------------------------------------- *
+
+    /
+    @media (max-width: 991px) {
+        .faq {
+            padding: 0;
+        }
+    }
+
+    .faq .content h3 {
+        font-weight: 400;
+        font-size: 34px;
+        color: var(--color-secondary);
+    }
+
+    .faq .content h4 {
+        font-size: 20px;
+        font-weight: 700;
+        margin-top: 5px;
+    }
+
+    .faq .content p {
+        font-size: 15px;
+        color: var(--color-gray);
+    }
+
+    .faq .img {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        min-height: 400px;
+    }
+
+    .faq .accordion-item {
+        border: 0;
+        margin-top: 15px;
+        box-shadow: 0px 5px 25px 0px rgba(var(--color-black-rgb), 0.06);
+    }
+
+    .faq .accordion-collapse {
+        border: 0;
+    }
+
+    .faq .accordion-button {
+        padding: 15px 40px 20px 60px;
+        font-weight: 600;
+        border: 0;
+        font-size: 18px;
+        color: var(--color-default);
+        text-align: left;
+        background: var(--color-white);
+        box-shadow: none;
+        border-radius: 5px;
+    }
+
+    .faq .accordion-button:not(.collapsed) {
+        color: var(--color-primary);
+        border-bottom: 0;
+        box-shadow: none;
+    }
+
+    .faq .question-icon {
+        position: absolute;
+        top: 14px;
+        left: 25px;
+        font-size: 20px;
+        color: var(--color-primary);
+    }
+
+    .faq .accordion-button:after {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: var(--color-primary);
+    }
+
+    .faq .accordion-body {
+        padding: 0 30px 25px 60px;
+        border: 0;
+        border-radius: 5px;
+        background: var(--color-white);
+        box-shadow: none;
+    }
+</style>
+<section id="faq" class="faq">
+    <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
+
+                <div class="content px-xl-5">
+
+
+                </div>
+
+                <div class="accordion accordion-flush px-xl-5" id="faqlist">
+
+                    <div class="accordion-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed num" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-1" aria-expanded="false">
+
+                                Liste des bases de données scientifiques gratuites en période de confinement.
+                            </button>
+                        </h3>
+                        <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist" style="">
+                            <div class="accordion-body">
+                                <object data="{% static 'assets/pdf/base/confinement.pdf' %}" type="application/pdf"
+                                        width="100%"
+                                        height="80%">
+                                    <p>Impossible d'afficher le PDF. Veuillez <a
+                                            href="{% static 'assets/pdf/base/confinement.pdf' %}">télécharger le
+                                        fichier</a> pour
+                                        le visualiser.</p>
+                                </object>
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-2" aria-expanded="false">
+
+                                Accès gratuit à la plateforme ELSEVIER.
+                            </button>
+                        </h3>
+                        <div id="faq-content-2" class="accordion-collapse collapse" data-bs-parent="#faqlist" style="">
+                            <div class="accordion-body">
+                                <object data="{% static 'assets/pdf/base/elsever.pdf' %}" type="application/pdf"
+                                        width="100%"
+                                        height="80%">
+                                    <p>Impossible d'afficher le PDF. Veuillez <a
+                                            href="{% static 'assets/pdf/base/elsever.pdf' %}">télécharger le fichier</a>
+                                        pour
+                                        le visualiser.</p>
+                                </object>
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-3" aria-expanded="false">
+
+
+                                Accès gratuit à la base de données GeoScienceWorld.
+                            </button>
+                        </h3>
+                        <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                <object data="{% static 'assets/pdf/base/geoscienceworld.pdf' %}" type="application/pdf"
+                                        width="100%"
+                                        height="80%">
+                                    <p>Impossible d'afficher le PDF. Veuillez <a
+                                            href="{% static 'assets/pdf/base/geoscienceworld.pdf' %}">télécharger le
+                                        fichier</a> pour
+                                        le visualiser.</p>
+                                </object>
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="500">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-4" aria-expanded="false">
+
+                                Accès gratuit à IEEE Xplore digital library et JoVE Stem.
+                            </button>
+                        </h3>
+                        <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                <object data="{% static 'assets/pdf/base/jovestem.pdf' %}" type="application/pdf"
+                                        width="100%"
+                                        height="80%">
+                                    <p>Impossible d'afficher le PDF. Veuillez <a
+                                            href="{% static 'assets/pdf/base/jovestem.pdf' %}">télécharger le
+                                        fichier</a> pour
+                                        le visualiser.</p>
+                                </object>
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <div class="accordion-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-5" aria-expanded="false">
+
+                                Accès gratuit à la plateforme SPRINGER Nature.
+                            </button>
+                        </h3>
+                        <div id="faq-content-5" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                <object data="{% static 'assets/pdf/base/springer-nature.pdf' %}" type="application/pdf"
+                                        width="100%"
+                                        height="80%">
+                                    <p>Impossible d'afficher le PDF. Veuillez <a
+                                            href="{% static 'assets/pdf/base/springer-nature.pdf' %}">télécharger le
+                                        fichier</a> pour
+                                        le visualiser.</p>
+                                </object>
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-6" aria-expanded="false">
+
+                                Accès gratuit à Wiley Online Library.
+                            </button>
+                        </h3>
+                        <div id="faq-content-6" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                <object data="{% static 'assets/pdf/base/wiley.pdf' %}" type="application/pdf"
+                                        width="100%"
+                                        height="80%">
+                                    <p>Impossible d'afficher le PDF. Veuillez <a
+                                            href="{% static 'assets/pdf/base/wiley.pdf' %}">télécharger le fichier</a>
+                                        pour
+                                        le visualiser.</p>
+                                </object>
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+                    <div class="accordion-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="600">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq-content-7" aria-expanded="false">
+
+                                Accès gratuit à des ressources supplémentaires sur SPRINGER Nature.
+                            </button>
+                        </h3>
+                        <div id="faq-content-7" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                            <div class="accordion-body">
+                                <object data="{% static 'assets/pdf/base/springernature.pdf' %}" type="application/pdf"
+                                        width="100%"
+                                        height="80%">
+                                    <p>Impossible d'afficher le PDF. Veuillez <a
+                                            href="{% static 'assets/pdf/base/springernature.pdf' %}">télécharger le
+                                        fichier</a> pour
+                                        le visualiser.</p>
+                                </object>
+                            </div>
+                        </div>
+                    </div><!-- # Faq item-->
+
+                    <br><br><br><br><br>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
+                 style="background-image: url('{% static 'assets/img/faq.jpg' %}');">&nbsp;
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock content %}

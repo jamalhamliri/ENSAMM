@@ -2,303 +2,305 @@
 {% load cms_tags %}
 {% load static %}
 {% block content %}
-<style>
-    .carousel-inner {
-        padding: 1em;
-    }
 
-    .card {
-        margin: 0 0.5em;
-        box-shadow: 2px 6px 8px 0 rgba(22, 22, 26, 0.18);
-        border: none;
-        height: 400px;
-        width: 500px;
-    }
-
-    .carousel-control-prev,
-    .carousel-control-next {
-        background-color: #e1e1e1;
-        width: 6vh;
-        height: 6vh;
-        border-radius: 50%;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-
-    @media (min-width: 768px) {
-        .carousel-item {
-            margin-right: 0;
-            flex: 0 0 33.333333%;
-            display: block;
-        }
-
-        .carousel-inner {
-            display: flex;
-        }
-    }
-
-    .card .img-wrapper {
-        max-width: 100%;
-        height: 13em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .card img {
-        max-height: 100%;
-    }
-
-    @media (max-width: 767px) {
-        .card .img-wrapper {
-            height: 17em;
-        }
-    }
-</style>
 <!-- ======= Hero Section ======= -->
 <section id="hero">
-    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+    <div class="carousel slide carousel-fade" data-bs-interval="5000" data-bs-ride="carousel" id="heroCarousel">
         <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
 
         <div class="carousel-inner" role="listbox">
             <!-- Slide 1 -->
+            {% for slide in slide %}
             <div class="carousel-item active"
-                 style="background-image: url('{% static 'assets/img/home/slide1.jpeg' %}')">
+                 style="background-image: url('{{ slide.article.imageURL }}')">
                 <div class="carousel-container">
                     <div class="container">
-                        <h2 class="animate__animated animate__fadeInDown">The fifth International Conference on Smart
-                            Applications and Data Analysis for Smart Cyber-Physical Systems (SADASC’24)</h2>
-                        <p class="animate__animated animate__fadeInUp">The fifth International Conference on Smart
-                            Applications and Data Analysis for Smart Cyber-Physical Systems (SADASC’24)</p>
-                        <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Voir
+                        <h2 class="animate__animated animate__fadeInDown">{{slide.article.title}}</h2>
+                        <p class="animate__animated animate__fadeInUp">{{slide.article.description }}</p>
+                        <a class="btn-get-started animate__animated animate__fadeInUp scrollto" href="{%url 'afficher' 1 %}">Voir
                             plus</a>
                     </div>
                 </div>
             </div>
+            {% endfor %}
 
-            <!-- Slide 2 -->
-            <div class="carousel-item" style="background-image: url('{% static 'assets/img/home/slide2.jpeg' %}')">
-                <div class="carousel-container">
-                    <div class="container">
-                        <h2 class="animate__animated animate__fadeInDown">Projet de construction de l’Ecole Nationale
-                            Supérieure d'Arts et Métiers</h2>
-                        <p class="animate__animated animate__fadeInUp">Projet de construction de l’Ecole Nationale
-                            Supérieure d'Arts et Métiers</p>
-                        <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Voir
-                            plus</a>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Slide 3 -->
-            <div class="carousel-item" style="background-image: url('{% static 'assets/img/home/slide3.jpg' %}')">
-                <div class="carousel-container">
-                    <div class="container">
-                        <h2 class="animate__animated animate__fadeInDown">HUAWEI ICT COMPETITION 2023-2024 NATIONAL
-                            PHASE</h2>
-                        <p class="animate__animated animate__fadeInUp">HUAWEI ICT COMPETITION 2023-2024 NATIONAL
-                            PHASE</p>
-                        <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Voir
-                            plus</a>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev"><span
-                class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span></a>
+        <a class="carousel-control-prev" data-bs-slide="prev" href="#heroCarousel" role="button"><span
+                aria-hidden="true" class="carousel-control-prev-icon bi bi-chevron-left"></span></a>
 
-        <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next"><span
-                class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span></a>
+        <a class="carousel-control-next" data-bs-slide="next" href="#heroCarousel" role="button"><span
+                aria-hidden="true" class="carousel-control-next-icon bi bi-chevron-right"></span></a>
     </div>
 </section>
 
 <!-- End Hero -->
 
+<section class="services" id="services">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
 
-<section>
-    <div class="row" style="background-color:white;">
         <div class="col-md-12">
             <div class="section-title">
                 <center>
-                    <h1>Communiqués Officiels</h1>
+                    <h1 style="color:#1F5793">Communiqués Officiels</h1>
                 </center>
             </div>
         </div>
-    </div>
-    <div id="carouselExampleControls1" class="carousel" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">The fifth International Conference on Smart Applications and Data
-                            Analysis for Smart Cyber-Physical Systems (SADASC’24)</h5>
 
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
+        <div class="row gy-5">
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">
+                            The fifth International Conference on Smart Applications and Data
+                            Analysis for Smart Cyber-Physical Systems (SADASC’24)</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="{%url 'afficher' 1 %}">Afficher</a></div>
 
                     </div>
                 </div>
-            </div>
 
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
+            </div><!-- End Service Item -->
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">إعلان عن فتح باب الترشيح لشغل مناصب رؤساء المصالح بالمدرسة الوطنية العليا
-                            للفنون و المهن بالدار البيضاء</h5>
+                    <div class="details position-relative">
 
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
+
+                        <p style="height: 20%;">
+                            إعلان عن فتح باب الترشيح لشغل مناصب رؤساء المصالح بالمدرسة الوطنية العليا
+                            للفنون و المهن بالدار البيضاء
+                        </p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="{%url 'afficher' 1 %}">Afficher</a></div>
+
+                    </div>
+
+                </div>
+
+            </div><!-- End Service Item -->
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">
+                            الرتشـيحات للتسـجيل في تكوينـات الدكتـوراه برسـم الموسم الجامعـي
+                            2023-2024 </p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="{%url 'afficher' 1 %}">Afficher</a></div>
                     </div>
                 </div>
-            </div>
+            </div><!-- End Service Item -->
 
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="500">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">الرتشـيحات للتسـجيل في تكوينـات الدكتـوراه برسـم الموسم الجامعـي
-                            2023-2024</h5>
+                    <div class="details position-relative">
 
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
+
+                        <p style="height: 20%;">Titre</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
+
+                    </div>
+
+                </div>
+            </div><!-- End Service Item -->
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="600">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">Titre</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
+
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Titre1</h5>
-                        <p class="card-text">Titre2</p>
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
-                    </div>
-                </div>
-            </div>
+            </div><!-- End Service Item -->
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="700">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">Titre2</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
+
+
+                    </div>
+
+                </div>
+
+            </div><!-- End Service Item -->
+
+
         </div>
-    </div>
 
-    <div class="row" style="background-color:white;">
+    </div>
+</section>
+<section class="services" id="services">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
         <div class="col-md-12">
             <div class="section-title">
                 <center>
-                    <h1>Avis Aux Étudiants</h1>
+                    <h1 style="color:#1F5793">Avis Aux Étudiants</h1>
                 </center>
             </div>
         </div>
-    </div>
-    <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">The fifth International Conference on Smart Applications and Data
-                            Analysis for Smart Cyber-Physical Systems (SADASC’24)</h5>
 
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
+        <div class="row gy-5">
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">
+                            The fifth International Conference on Smart Applications and Data
+                            Analysis for Smart Cyber-Physical Systems (SADASC’24)</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
+
                     </div>
                 </div>
-            </div>
 
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
+            </div><!-- End Service Item -->
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">إعلان عن فتح باب الترشيح لشغل مناصب رؤساء المصالح بالمدرسة الوطنية العليا
-                            للفنون و المهن بالدار البيضاء</h5>
+                    <div class="details position-relative">
 
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
+
+                        <p style="height: 20%;">
+                            إعلان عن فتح باب الترشيح لشغل مناصب رؤساء المصالح بالمدرسة الوطنية العليا
+                            للفنون و المهن بالدار البيضاء
+                        </p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
+
+                    </div>
+
+                </div>
+
+            </div><!-- End Service Item -->
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">
+                            الرتشـيحات للتسـجيل في تكوينـات الدكتـوراه برسـم الموسم الجامعـي
+                            2023-2024 </p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
                     </div>
                 </div>
-            </div>
+            </div><!-- End Service Item -->
 
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="500">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">الرتشـيحات للتسـجيل في تكوينـات الدكتـوراه برسـم الموسم الجامعـي
-                            2023-2024</h5>
+                    <div class="details position-relative">
 
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
+
+                        <p style="height: 20%;">Titre</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
+
+                    </div>
+
+                </div>
+            </div><!-- End Service Item -->
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="600">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">Titre</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
+
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Titre1</h5>
-                        <p class="card-text">Titre2</p>
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
-                    </div>
-                </div>
-            </div>
+            </div><!-- End Service Item -->
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="700">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">Titre2</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
+
+
+                    </div>
+
+                </div>
+
+            </div><!-- End Service Item -->
+
+
         </div>
-    </div>
 
+    </div>
+</section>
+
+{% include 'static.html' %}
+
+
+<section class="services" id="services">
     <div class="row">
         <div class="col-md-12">
             <div class="section-title">
                 <center>
-                    <h1>Pré-Candidature</h1>
-                </center>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="services" class="services">
-    <div class="row" style="background-color:white;">
-        <div class="col-md-12">
-            <div class="section-title">
-                <center>
-                    <h1>Agenda</h1>
+                    <h1 style="color:#1F5793">Agenda</h1>
                 </center>
             </div>
         </div>
@@ -348,24 +350,25 @@
         </div>
     </div>
 </section>
-<section id="testimonials" class="testimonials">
+<section class="testimonials" id="testimonials">
     <div class="row" style="background-color:white;">
         <div class="col-md-12">
             <div class="section-title">
                 <center>
-                    <h1>Mot du Directeur</h1>
+                    <h1 style="color:#1F5793">Mot du Directeur</h1>
                 </center>
             </div>
         </div>
     </div>
     <div class="container">
 
-        <div style="height: 60%;" class="row">
+        <div class="row" style="height: 60%;">
 
             <div class="col-lg-12">
                 <div class="testimonial-item">
-                    <img style="height: 300px;width: 300px"
-                         src="http://www.ensam-casa.ma/assets/images/directeur-img.jpg" class="testimonial-img" alt="">
+                    <img alt=""
+                         class="testimonial-img" src="http://www.ensam-casa.ma/assets/images/directeur-img.jpg"
+                         style="height: 300px;width: 300px">
                     <h3>Professeur Abdelmajid Badri</h3>
                     <h4>Directeur de l'ENSAM-Casablanca</h4>
 
@@ -382,175 +385,207 @@
             </div>
 
         </div>
-        <div style="height: 50%;" class="row mt-1">
-            <div class="col-lg-6">
-                <br>
-                <div class="member d-flex align-items-start">
-
-                    <center><h3>ENSAM - École Nationale Supérieure des Arts et Métiers Casablanca</h3></center>
-                </div>
-                <p>ENSAM Créée en 2010, dans la plus grande agglomération industrielle du Royaume pour répondre aux
-                    besoins en ingénieurs, l’École Nationale Supérieure d’Arts et Métiers de Casablanca relevant de
-                    l’Université Hassan II de Casablanca, est une école d’ingénieurs étatique qui assure une formation
-                    d’ingénieurs pluri-compétents, humanistes, innovants et dotés d’un esprit entrepreneurial, opérants
-                    dans différents secteurs industriels privés et publics à l’échelle national et international.</p>
-
-            </div>
-            <div class="col-md-6 d-none d-sm-block content">
-                <iframe src="https://www.youtube.com/embed/CXDyLD7RhBs" frameborder="0" height="100%"
-                        width="100%"></iframe>
-            </div>
-        </div>
 
     </div>
-
-
 </section>
-<section>
-    <div class="row" style="background-color:white;">
+<section class="services" id="services">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
         <div class="col-md-12">
             <div class="section-title">
                 <center>
-                    <h1>Nos Formations</h1>
+                    <h1 style="color:#1F5793">Nos Formations</h1>
                 </center>
             </div>
         </div>
-    </div>
-    <div id="carouselExampleControls" class="carousel" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Génie Industriel</h5>
 
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
+        <div class="row gy-5">
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="200">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">
+                            The fifth International Conference on Smart Applications and Data
+                            Analysis for Smart Cyber-Physical Systems (SADASC’24)</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="{%url 'afficher' 1 %}">Afficher</a></div>
+
                     </div>
                 </div>
-            </div>
 
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
+            </div><!-- End Service Item -->
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="300">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Intelligence Artificielle & Génie Informatique</h5>
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">
+                            إعلان عن فتح باب الترشيح لشغل مناصب رؤساء المصالح بالمدرسة الوطنية العليا
+                            للفنون و المهن بالدار البيضاء
+                        </p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="{%url 'afficher' 1 %}">Afficher</a></div>
+
+                    </div>
+
+                </div>
+
+            </div><!-- End Service Item -->
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="400">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">
+                            الرتشـيحات للتسـجيل في تكوينـات الدكتـوراه برسـم الموسم الجامعـي
+                            2023-2024 </p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="{%url 'afficher' 1 %}">Afficher</a></div>
                     </div>
                 </div>
-            </div>
+            </div><!-- End Service Item -->
 
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="500">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
                     </div>
-                    <div class="card-body">
-                        <h5 class="card-title">الرتشـيحات للتسـجيل في تكوينـات الدكتـوراه برسـم الموسم الجامعـي
-                            2023-2024</h5>
+                    <div class="details position-relative">
 
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
+
+                        <p style="height: 20%;">Titre</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
+
+                    </div>
+
+                </div>
+            </div><!-- End Service Item -->
+
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="600">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">Titre</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
+
                     </div>
                 </div>
-            </div>
-            <div class="carousel-item active">
-                <div class="card">
-                    <div class="img-wrapper">
-                        <img src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}" class="d-block w-100"
-                             alt="..."/>
-                    </div>
-                    <div class="card-body">
-                        <h5 class="card-title">Titre1</h5>
-                        <p class="card-text">Titre2</p>
-                        <div class="d-grid gap-2"><a href="" class="btn btn-primary">Afficher</a></div>
-                    </div>
-                </div>
-            </div>
+            </div><!-- End Service Item -->
 
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                    data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+            <div class="col-xl-4 col-md-6 aos-init aos-animate" data-aos="zoom-in" data-aos-delay="700">
+                <div class="service-item">
+                    <div class="img">
+                        <img alt="" class="img-fluid"
+                             src="{% static 'assets/img/communique_2023_10_12_11_43_04.png' %}">
+                    </div>
+                    <div class="details position-relative">
+
+
+                        <p style="height: 20%;">Titre2</p>
+                        <div class="d-grid gap-2"><a class="btn btn-primary" href="">Afficher</a></div>
+
+
+                    </div>
+
+                </div>
+
+            </div><!-- End Service Item -->
+
+
         </div>
+
     </div>
 </section>
+
+
 <div class="row">
     <div class="col-md-12">
         <div class="section-title">
             <center>
-                <h1>Partenaires de Certification</h1>
+                <h1 style="color:#1F5793">Partenaires de Certification</h1>
             </center>
         </div>
     </div>
 </div>
-<section id="clients" class="clients section-bg">
+<section class="clients section-bg" id="clients">
     <div class="container">
         <div class="row">
             <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                <a target="_blank" href="https://www.orange.ma/" title="Orange">
-                    <img width="200" height="70"
-                         src="http://www.ensam-casa.ma/assets/images/videoImage_2023_08_03_10_04_53.JPG" alt="">
+                <a href="https://www.orange.ma/" target="_blank" title="Orange">
+                    <img alt="" height="70"
+                         src="http://www.ensam-casa.ma/assets/images/videoImage_2023_08_03_10_04_53.JPG" width="200">
                 </a>
             </div>
             <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                <a target="_blank" href="https://www.topsolid.com/fr-fr" title="TopSolid">
-                    <img width="200" height="70"
-                         src="http://www.ensam-casa.ma/assets/images/videoImage_2023_08_03_10_02_38.JPG" alt="">
+                <a href="https://www.topsolid.com/fr-fr" target="_blank" title="TopSolid">
+                    <img alt="" height="70"
+                         src="http://www.ensam-casa.ma/assets/images/videoImage_2023_08_03_10_02_38.JPG" width="200">
                 </a>
             </div>
-<!--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">-->
-<!--                <a target="_blank" href="https://expleo.com/global/en/" title="Expleo">-->
-<!--                    <img width="200" height="70"-->
-<!--                         src="http://www.ensam-casa.ma/assets/images/videoImage_2023_08_03_10_27_23.jpg" alt="">-->
-<!--                </a>-->
-<!--            </div>-->
+            <!--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">-->
+            <!--                <a target="_blank" href="https://expleo.com/global/en/" title="Expleo">-->
+            <!--                    <img width="200" height="70"-->
+            <!--                         src="http://www.ensam-casa.ma/assets/images/videoImage_2023_08_03_10_27_23.jpg" alt="">-->
+            <!--                </a>-->
+            <!--            </div>-->
             <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                <a target="_blank" href="https://aws.amazon.com/fr/certification/" title="Amazon">
-                    <img class="img-fluid"
-                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_12_39.png" alt="">
+                <a href="https://aws.amazon.com/fr/certification/" target="_blank" title="Amazon">
+                    <img alt=""
+                         class="img-fluid"
+                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_12_39.png">
                 </a>
             </div>
             <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                <a target="_blank" href="https://e.huawei.com/en/talent/" title="Huawei">
-                    <img class="img-fluid"
-                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_13_50.png" alt="">
+                <a href="https://e.huawei.com/en/talent/" target="_blank" title="Huawei">
+                    <img alt=""
+                         class="img-fluid"
+                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_13_50.png">
                 </a>
             </div>
-<!--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">-->
-<!--                <a target="_blank" href="https://training.fortinet.com/local/staticpage/view.php?page=certifications"-->
-<!--                   title="Fortinet">-->
-<!--                    <img class="img-fluid"-->
-<!--                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_15_20.png" alt="">-->
-<!--                </a>-->
-<!--            </div>-->
+            <!--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">-->
+            <!--                <a target="_blank" href="https://training.fortinet.com/local/staticpage/view.php?page=certifications"-->
+            <!--                   title="Fortinet">-->
+            <!--                    <img class="img-fluid"-->
+            <!--                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_15_20.png" alt="">-->
+            <!--                </a>-->
+            <!--            </div>-->
             <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                <a target="_blank" href="https://www.cisco.com/c/en/us/index.html" title="CISCO">
-                    <img class="img-fluid"
-                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_16_19.png" alt="">
+                <a href="https://www.cisco.com/c/en/us/index.html" target="_blank" title="CISCO">
+                    <img alt=""
+                         class="img-fluid"
+                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_16_19.png">
                 </a>
             </div>
-<!--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">-->
-<!--                <a target="_blank" href="https://www.juniper.net/us/en/" title="JUNIPER">-->
-<!--                    <img class="img-fluid"-->
-<!--                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_17_30.png" alt="">-->
-<!--                </a>-->
-<!--            </div>-->
+            <!--            <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">-->
+            <!--                <a target="_blank" href="https://www.juniper.net/us/en/" title="JUNIPER">-->
+            <!--                    <img class="img-fluid"-->
+            <!--                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_17_30.png" alt="">-->
+            <!--                </a>-->
+            <!--            </div>-->
             <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-                <a target="_blank" href="https://www.oracle.com/fr/index.html" title="ORACLE">
-                    <img class="img-fluid"
-                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_18_43.png" alt="">
+                <a href="https://www.oracle.com/fr/index.html" target="_blank" title="ORACLE">
+                    <img alt=""
+                         class="img-fluid"
+                         src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_18_43.png">
                 </a>
             </div>
 
@@ -559,114 +594,25 @@
     </div>
 </section>
 
-<!--<section id="clients" class="clients">-->
-<!--    <div class="container aos-init aos-animate" data-aos="zoom-out">-->
 
-<!--        <div class="clients-slider swiper swiper-initialized swiper-horizontal swiper-pointer-events">-->
-<!--            <div class="swiper-wrapper align-items-center" id="swiper-wrapper-194fe111106b3e6e4" aria-live="off"-->
-<!--                 style="transition-duration: 0ms; transform: translate3d(-1341px, 0px, 0px);">-->
-<!--                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-prev" role="group"-->
-<!--                     aria-label="5 / 8" style="width: 69px; margin-right: 80px;" data-swiper-slide-index="4">-->
-<!--                                    <a target="_blank" href="https://www.orange.ma/" title="Orange">-->
-<!--                    <img src="http://www.ensam-casa.ma/assets/images/videoImage_2023_08_03_10_04_53.JPG" class="img-fluid" alt="">-->
-<!--                </a>-->
-<!--                </div>-->
-<!--                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" role="group"-->
-<!--                     aria-label="6 / 8" style="width: 69px; margin-right: 80px;" data-swiper-slide-index="5">-->
-<!--                    <a target="_blank" href="https://www.topsolid.com/fr-fr" title="TopSolid"><img-->
-<!--                            src="http://www.ensam-casa.ma/assets/images/videoImage_2023_08_03_10_02_38.JPG" class="img-fluid" alt="">-->
-<!--                    </a>-->
-<!--                </div>-->
-<!--                <div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-next" role="group"-->
-<!--                     aria-label="7 / 8" style="width: 69px; margin-right: 80px;" data-swiper-slide-index="6">-->
-<!--                    <img-->
-<!--                        src="http://www.ensam-casa.ma/assets/images/videoImage_2023_08_03_10_27_23.jpg" class="img-fluid" alt="">-->
-
-<!--                <div class="swiper-slide swiper-slide-duplicate" role="group" aria-label="8 / 8"-->
-<!--                     style="width: 69px; margin-right: 80px;" data-swiper-slide-index="7">-->
-<!--                                    <a target="_blank" href="https://aws.amazon.com/fr/certification/" title="Amazon">-->
-<!--<img src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_12_39.png" class="img-fluid" alt="">-->
-<!--                                    </a>-->
-<!--                </div>-->
-<!--                <div class="swiper-slide" role="group" aria-label="1 / 8" style="width: 69px; margin-right: 80px;"-->
-<!--                     data-swiper-slide-index="0">-->
-<!--                                    <a target="_blank" href="https://e.huawei.com/en/talent/" title="Huawei">-->
-<!--                    <img src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_13_50.png" class="img-fluid" alt="">-->
-<!--                                    </a>-->
-<!--                </div>-->
-<!--                <div class="swiper-slide" role="group" aria-label="2 / 8" style="width: 69px; margin-right: 80px;"-->
-<!--                     data-swiper-slide-index="1">-->
-<!--                                    <a target="_blank" href="https://training.fortinet.com/local/staticpage/view.php?page=certifications">-->
-<!--<img src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_15_20.png" class="img-fluid" alt="">-->
-<!--                                    </a>-->
-<!--                </div>-->
-<!--                <div class="swiper-slide" role="group" aria-label="3 / 8" style="width: 69px; margin-right: 80px;"-->
-<!--                     data-swiper-slide-index="2">-->
-<!--                                    <a target="_blank" href="https://www.cisco.com/c/en/us/index.html" title="CISCO">-->
-<!--                    <img src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_16_19.png" class="img-fluid" alt="">-->
-<!--                                    </a>-->
-
-<!--                </div>-->
-<!--                <div class="swiper-slide" role="group" aria-label="4 / 8" style="width: 69px; margin-right: 80px;"-->
-<!--                     data-swiper-slide-index="3">-->
-<!--                    <a target="_blank" href="https://www.juniper.net/us/en/" title="JUNIPER">-->
-<!--                    <img src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_17_30.png" class="img-fluid" alt="">-->
-<!--                    </a>-->
-
-<!--                </div>-->
-<!--                <div class="swiper-slide swiper-slide-prev" role="group" aria-label="5 / 8"-->
-<!--                     style="width: 69px; margin-right: 80px;" data-swiper-slide-index="4">-->
-<!--                                    <a target="_blank" href="https://www.oracle.com/fr/index.html" title="ORACLE">-->
-<!--<img-->
-<!--                        src="http://www.ensam-casa.ma/assets/images/partenaireImage_2021_05_08_05_18_43.png"class="img-fluid" alt="">-->
-<!--                                    </a>-->
-<!--                </div>-->
-<!--                <div class="swiper-slide swiper-slide-active" role="group" aria-label="6 / 8"-->
-<!--                     style="width: 69px; margin-right: 80px;" data-swiper-slide-index="5"><img-->
-<!--                        src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>-->
-<!--                <div class="swiper-slide swiper-slide-next" role="group" aria-label="7 / 8"-->
-<!--                     style="width: 69px; margin-right: 80px;" data-swiper-slide-index="6"><img-->
-<!--                        src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>-->
-<!--                <div class="swiper-slide" role="group" aria-label="8 / 8" style="width: 69px; margin-right: 80px;"-->
-<!--                     data-swiper-slide-index="7"><img src="assets/img/clients/client-8.png" class="img-fluid" alt="">-->
-<!--                </div>-->
-<!--                <div class="swiper-slide swiper-slide-duplicate" role="group" aria-label="1 / 8"-->
-<!--                     style="width: 69px; margin-right: 80px;" data-swiper-slide-index="0"><img-->
-<!--                        src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>-->
-<!--                <div class="swiper-slide swiper-slide-duplicate" role="group" aria-label="2 / 8"-->
-<!--                     style="width: 69px; margin-right: 80px;" data-swiper-slide-index="1"><img-->
-<!--                        src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>-->
-<!--                <div class="swiper-slide swiper-slide-duplicate" role="group" aria-label="3 / 8"-->
-<!--                     style="width: 69px; margin-right: 80px;" data-swiper-slide-index="2"><img-->
-<!--                        src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>-->
-<!--                <div class="swiper-slide swiper-slide-duplicate" role="group" aria-label="4 / 8"-->
-<!--                     style="width: 69px; margin-right: 80px;" data-swiper-slide-index="3"><img-->
-<!--                        src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>-->
-<!--            </div>-->
-<!--            <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>-->
-
-<!--    </div>-->
-<!--    </div>-->
-<!--    -->
-<!--</section>-->
 <section>
     <div class="row">
         <div class="col-md-12">
             <div class="section-title">
                 <center>
-                    <h1>Ils Parlent de Nous</h1>
+                    <h1 style="color:#1F5793">Ils Parlent de Nous</h1>
                 </center>
             </div>
         </div>
     </div>
-    <section id="blog" class="blog">
+    <section class="blog" id="blog">
         <div class="container" data-aos="fade-up">
             <div class="row">
                 <div class="col-lg-8 entries">
                     <article class="entry">
                         <div class="entry-img">
-                            <img src="{% static 'assets/img/home/news_2023_08_02_14_45_07.jpg' %}" alt=""
-                                 class="img-fluid"/>
+                            <img alt="" class="img-fluid"
+                                 src="{% static 'assets/img/home/news_2023_08_02_14_45_07.jpg' %}"/>
                         </div>
 
                         <h2 class="entry-title"><a href="blog-single.html">Cérémonie de remise des diplômes pour les
@@ -688,26 +634,26 @@
                         <h3 class="sidebar-title">Recent Posts</h3>
                         <div class="sidebar-item recent-posts">
                             <div class="post-item clearfix">
-                                <img src="{% static 'assets/img/home/news_2023_08_02_14_45_07.jpg' %}" alt=""/>
+                                <img alt="" src="{% static 'assets/img/home/news_2023_08_02_14_45_07.jpg' %}"/>
                                 <h4><a href="blog-single.html">Cérémonie de remise des diplômes pour les lauréats de la
                                     promotion 2023</a></h4>
                             </div>
 
                             <div class="post-item clearfix">
-                                <img src="{% static 'assets/img/home/news_2023_08_02_14_44_20.jpg' %}'" alt=""/>
+                                <img alt="" src="{% static 'assets/img/home/news_2023_08_02_14_44_20.jpg' %}'"/>
                                 <h4><a href="blog-single.html">Lancement de la première session de formation de Cloud
                                     Academy</a></h4>
                             </div>
 
                             <div class="post-item clearfix">
-                                <img src="{% static 'assets/img/home/news_2023_08_02_14_30_28.jpg' %}" alt=""/>
+                                <img alt="" src="{% static 'assets/img/home/news_2023_08_02_14_30_28.jpg' %}"/>
                                 <h4><a href="blog-single.html">Participation du club ITECH Immersive TECHNOLOGIES ENSAM
                                     CASABLANCA Club lors de la cérémonie de remise des diplômes pour les lauréats de la
                                     promotion 2023</a></h4>
                             </div>
 
                             <div class="post-item clearfix">
-                                <img src="{% static 'assets/img/home/news_2023_08_02_14_31_08.jpg' %}" alt=""/>
+                                <img alt="" src="{% static 'assets/img/home/news_2023_08_02_14_31_08.jpg' %}"/>
                                 <h4><a href="blog-single.html">Partenariat entre GROB-WERKE GmbH & Co. KG et l'École
                                     Nationale Supérieure d'Arts et Métiers de Casablanca</a></h4>
                             </div>
@@ -728,14 +674,15 @@
 {% placeholder 'main' %}
 {% endblock %}
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+<script crossorigin="anonymous"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script crossorigin="anonymous"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.3.min.js"
-        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+<script crossorigin="anonymous"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU="
+        src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
 
 <script>
     var multipleCardCarousel = document.querySelector('#carouselExampleControls')

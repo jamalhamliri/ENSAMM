@@ -83,6 +83,7 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'ENSAM', 'static'),
 )
+
 SITE_ID = 1
 
 TEMPLATES = [
@@ -165,7 +166,8 @@ INSTALLED_APPS = [
     'djangocms_style',
     'djangocms_googlemap',
     'djangocms_video',
-    'ENSAM'
+    'ENSAM',
+    'app'
 ]
 
 LANGUAGES = (
@@ -211,6 +213,20 @@ CMS_TEMPLATES = (
     ('Etudiant/emplois_du_temps.html', 'Etudiant/emplois_du_temps'),
     ('Etudiant/avis_aux_etudiants.html', 'Etudiant/avis_aux_etudiants'),
     ('Etudiant/Ent.html', 'Etudiant/Ent'),
+    ('Recherche/equipes_laboratoires.html', 'Recherche/equipe_laboiratoires'),
+    ('Recherche/projet_ensam.html', 'Recherche/projet_ensam'),
+    ('Recherche/partenariats_scientifique.html', 'Recherche/partenariats_scientifique'),
+    ('E-learning/base_de_donnees_scientifiques.html', 'E-learning/base-de-donnees-scientifiques'),
+    ('Departement/departement-genie-industriel.html', 'Department/departement-genie-industriel'),
+   ('Departement/departement-genie-mecanique.html', 'Department/departement-genie-mecanique'),
+   ('Departement/departement-genie-electrique.html', 'Department/departement-genie-electrique'),('Departement/departement-genie-electrique.html', 'Department/departement-genie-electrique'),
+    ('Formation/formation-continue.html', 'Formation/formation-continue'),
+    ('Formation/master.html', 'Formation/master'),
+    ('laureats/laureats.html', 'laureats/laureats'),
+    ('laureats/ceremonie.html', 'laureats/ceremonie'),
+    ('gallery.html', 'Gallery'),
+
+
 
 )
 
@@ -230,6 +246,9 @@ DATABASES = {
         'PASSWORD': '',
         'HOST': 'localhost',  # ou l'adresse IP de votre serveur MySQL
         'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 

@@ -1,0 +1,316 @@
+{% extends 'base.html' %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load static %}
+{% block content %}
+<style>
+    .header {
+        position: relative;
+        border-bottom-right-radius: 50%;
+        background: #07689f;
+        overflow: hidden;
+        word-wrap: break-word;
+        min-height: 400px;
+        padding: 0 50px;
+        max-height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .header .title {
+        text-align: center;
+        margin: 0 auto;
+        width: 60%;
+        height: 100%;
+    }
+
+    .header .heading {
+        font-weight: 900;
+        color: #fafafa;
+        font-size: 45px;
+    }
+
+    @media screen and (max-width: 890px) {
+        .header .heading {
+            font-size: 30px;
+        }
+    }
+
+    .header .description {
+        color: #fff;
+        font-size: 16px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .header {
+            padding: 0 0;
+        }
+
+        .header .title {
+            padding: 0 0;
+            width: 100%;
+        }
+
+        .header .description {
+            display: none;
+        }
+    }
+
+    .corps-professoral,
+    .corps-administratif {
+        padding: 0 10px;
+    }
+
+    .corps-professoral .card,
+    .corps-administratif .card {
+        background: #fff;
+        margin: 0 10px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4);
+    }
+
+    .corps-professoral h4.card-title,
+    .corps-administratif h4.card-title {
+        min-height: 60px;
+        color: #173b5b;
+        position: relative;
+    }
+
+    .corps-professoral h4.card-title:after,
+    .corps-administratif h4.card-title:after {
+        content: '';
+        width: 90px;
+        height: 3px;
+        padding-left: 5px;
+        background: #07689f;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+    }
+
+    .corps-professoral .blue-text,
+    .corps-administratif .blue-text {
+        color: #a2a2a2;
+        height: 50px;
+        overflow: hidden;
+    }
+
+    .corps-professoral .card-text,
+    .corps-administratif .card-text {
+        color: #a2a2a2;
+        height: 30px;
+    }
+
+    .corps-professoral span,
+    .corps-administratif span {
+        color: #173b5b;
+    }
+
+    .corps-professoral .sous-title,
+    .corps-administratif .sous-title {
+        color: rgba(29, 45, 80, 0.7);
+        font-weight: 500;
+        font-size: 19px;
+        border: solid 2px #ff7e67;
+        background: #e3dfc8;
+        padding: 5px 5px;
+    }
+
+    .corps-professoral .p1,
+    .corps-professoral .p2,
+    .corps-professoral .p3,
+    .corps-administratif .p1,
+    .corps-administratif .p2,
+    .corps-administratif .p3 {
+        position: relative;
+        overflow: hidden;
+        transition: 0.9 linear;
+    }
+
+    .section-title {
+        font-family: Rubik, sans-serif;
+        color: #07689f;
+        padding: 10px 0px;
+        font-weight: 600;
+        position: relative;
+        font-size: 30px;
+        padding-bottom: 10px;
+        text-transform: none;
+        line-height: 42px;
+        margin-bottom: 30px;
+    }
+
+    .section-title:after {
+        content: '';
+        width: 90px;
+        height: 3px;
+        padding-left: 5px;
+        background: #07689f;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+    }
+</style>
+<section class="header">
+    <div class="title">
+        <h1 class="heading mb-3">Formation Continue</h1>
+    </div>
+</section>
+<section id="team" class="team ">
+
+
+    <div class="container">
+        <h3 class="section-title">La liste des formations continues</h3>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <object data="{% static 'assets/pdf/formation/licence/liste des Formations Continues Accréditées  2023-2024.pdf' %}"
+                        type="application/pdf" width="100%" height="800px">
+                    <p>Impossible d'afficher le PDF. Veuillez <a
+                            href="{% static 'assets/pdf/formation/licence/liste des Formations Continues Accréditées  2023-2024.pdf' %}">télécharger
+                        le fichier</a> pour
+                        le visualiser.</p>
+                </object>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="section-title">Licence: Automatismes industriels & systèmes électriques</h3>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <object data="{% static 'assets/pdf/formation/licence/automate_indus.pdf' %}" type="application/pdf"
+                        width="100%" height="800px">
+                    <p>Impossible d'afficher le PDF. Veuillez <a
+                            href="{% static 'assets/pdf/formation/licence/automate_indus.pdf' %}">télécharger le
+                        fichier</a> pour
+                        le visualiser.</p>
+                </object>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="section-title">Licence: Développement Logiciel et Sécurité des systèmes</h3>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <object data="{% static 'assets/pdf/formation/licence/devloppement.pdf' %}" type="application/pdf"
+                        width="100%" height="800px">
+                    <p>Impossible d'afficher le PDF. Veuillez <a
+                            href="{% static 'assets/pdf/formation/licence/devloppement.pdf' %}">télécharger le
+                        fichier</a> pour
+                        le visualiser.</p>
+                </object>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="section-title">Licence: Ingénierie en diagnostic automobile et maintenance industrielle</h3>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <object data="{% static 'assets/pdf/formation/licence/diagnostic.pdf' %}" type="application/pdf"
+                        width="100%" height="800px">
+                    <p>Impossible d'afficher le PDF. Veuillez <a
+                            href="{% static 'assets/pdf/formation/licence/diagnostic.pdf' %}">télécharger le fichier</a>
+                        pour
+                        le visualiser.</p>
+                </object>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="section-title">Licence: Conception de systèmes automobiles et aéronautiques</h3>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <object data="{% static 'assets/pdf/formation/licence/Aero.pdf' %}" type="application/pdf" width="100%"
+                        height="800px">
+                    <p>Impossible d'afficher le PDF. Veuillez <a
+                            href="{% static 'assets/pdf/formation/licence/Aero.pdf' %}">télécharger le fichier</a> pour
+                        le visualiser.</p>
+                </object>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="section-title">Licence: Génie Civil</h3>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <object data="{% static 'assets/pdf/formation/licence/Genie_Civil.pdf' %}" type="application/pdf"
+                        width="100%" height="800px">
+                    <p>Impossible d'afficher le PDF. Veuillez <a
+                            href="{% static 'assets/pdf/formation/licence/Genie_Civil.pdf' %}">télécharger le
+                        fichier</a> pour
+                        le visualiser.</p>
+                </object>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="section-title">Licence: Qualité sécurité environnement</h3>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <object data="{% static 'assets/pdf/formation/licence/Qualite.pdf' %}" type="application/pdf"
+                        width="100%" height="800px">
+                    <p>Impossible d'afficher le PDF. Veuillez <a
+                            href="{% static 'assets/pdf/formation/licence/Qualite.pdf' %}">télécharger le fichier</a>
+                        pour
+                        le visualiser.</p>
+                </object>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="section-title">Management des systemes industriels</h3>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <object data="{% static 'assets/pdf/formation/licence/sys_indus.pdf' %}" type="application/pdf"
+                        width="100%" height="800px">
+                    <p>Impossible d'afficher le PDF. Veuillez <a
+                            href="{% static 'assets/pdf/formation/licence/sys_indus.pdf' %}">télécharger le fichier</a>
+                        pour
+                        le visualiser.</p>
+                </object>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="container">
+        <h3 class="section-title">Développement web et mobile</h3>
+
+
+    </div><div class="container">
+        <h3 class="section-title">Digitalisation industrielle</h3>
+
+
+    </div><div class="container">
+        <h3 class="section-title">Technologies de traitement des surfaces</h3>
+
+
+    </div>
+</section>
+
+
+{% endblock %}
