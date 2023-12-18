@@ -222,6 +222,8 @@ CMS_TEMPLATES = (
    ('Departement/departement-genie-electrique.html', 'Department/departement-genie-electrique'),('Departement/departement-genie-electrique.html', 'Department/departement-genie-electrique'),
     ('Formation/formation-continue.html', 'Formation/formation-continue'),
     ('Formation/master.html', 'Formation/master'),
+    ('Formation/cycle-preparatoire.html', 'Formation/prepa'),
+    ('Formation/cycle-inginieur.html', 'Formation/ingineur'),
     ('laureats/laureats.html', 'laureats/laureats'),
     ('laureats/ceremonie.html', 'laureats/ceremonie'),
     ('gallery.html', 'Gallery'),

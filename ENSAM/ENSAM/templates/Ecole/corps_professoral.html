@@ -13,7 +13,7 @@
     .highcharts-data-table table {
         font-family: Verdana, sans-serif;
         border-collapse: collapse;
-        border: 1px solid #ebebeb;
+        border: 1px solid ;
         margin: 10px auto;
         text-align: center;
         width: 100%;
@@ -39,7 +39,7 @@
 
     .highcharts-data-table thead tr,
     .highcharts-data-table tr:nth-child(even) {
-        background: #f8f8f8;
+       background: #f8f8f8;
     }
 
     .highcharts-data-table tr:hover {
@@ -85,15 +85,17 @@
     </div>
 </section>
 
-<figure class="highcharts-figure">
-    <div id="container"></div>
+<figure   class="highcharts-figure">
+    <div  id="container"></div>
+
 
 </figure>
 <script>
     Highcharts.chart('container', {
         chart: {
             height: 1000,
-            inverted: true
+            inverted: true,
+            backgroundColor: 'rgba(0, 0, 0, 0)'
         },
 
         title: {
@@ -216,7 +218,7 @@
             dataLabels: {
                 color: 'white'
             },
-            borderColor: 'white',
+            borderColor: 'black',
             nodeWidth: 150
         }],
         tooltip: {

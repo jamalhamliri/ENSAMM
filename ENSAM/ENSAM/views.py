@@ -1,16 +1,9 @@
-from PyPDF2 import PdfReader
 
-from django.http import HttpResponseRedirect, HttpResponse
-from django.http import FileResponse, Http404
-from django.conf import settings
-import os
+
+from django.http import HttpResponseRedirect
+
 from django.shortcuts import render, redirect
-from io import BytesIO
-from django.http import HttpResponse
-from django.template.loader import get_template
-from django.views import View
-from django.views.generic import TemplateView
-from xhtml2pdf import pisa
+
 from app.models import *
 
 
@@ -19,16 +12,16 @@ def ent(request):
 
 
 def mooc_universite(request):
-    return HttpResponseRedirect('https://ent.univh2c.ma/uPortal/f/welcome/normal/render.uP')
+    return HttpResponseRedirect('http://www.mooc.univh2c.ma/')
 
 
 def home(request):
     return redirect('/index/')
 
 
-def lire_pdf(request):
-    file_path = os.path.join(settings.STATIC_ROOT, 'assets', 'reglement.pdf')
-    return render(request, 'afficher_pdf.html', {'file_path': file_path})
+# def lire_pdf(request):
+#     file_path = os.path.join(settings.STATIC_ROOT, 'assets', 'reglement.pdf')
+#     return render(request, 'afficher_pdf.html', {'file_path': file_path})
 
 
 def index(request):
